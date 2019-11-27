@@ -39,8 +39,7 @@
   display: flex;
   align-items: center;
   height: 60px;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
+  @include f500;
 }
 .menu__list {
   li {
@@ -69,15 +68,13 @@
   color: #fff;
   text-align: center;
   &-title {
-    font-family: "Roboto", sans-serif;
-    font-weight: 700;
+    @include f700;
     font-size: 48px;
     margin-bottom: 10px;
     line-height: 72px;
   }
   &-text {
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
+    @include f500;
     font-size: 20px;
     margin-bottom: 50px;
     line-height: 30px;
@@ -87,7 +84,6 @@
     margin: 0 auto;
     position: relative;
     input {
-      font-family: "Roboto", sans-serif;
       display: block;
       width: 100%;
       box-shadow: 0px 1px 10px 0px rgba(124, 178, 64, 0.75);
@@ -95,7 +91,7 @@
       height: 56px;
       border: none;
       font-size: 14px;
-      font-weight: 500;
+      @include f500;
       padding-left: 25px;
       padding-right: 60px;
       &::placeholder {
@@ -246,8 +242,8 @@
       display: inline-block;
       margin-left: 3px;
       margin-right: 3px;
-      &.slick-active{
-        button{
+      &.slick-active {
+        button {
           background-color: $green;
         }
       }
@@ -266,3 +262,71 @@
 }
 
 // end product-slider
+// start advantages
+
+.advantages {
+  background-color: $bg;
+  padding: 110px 0;
+}
+.advantages__title {
+  color: #fff;
+}
+.advantages__inner {
+  display: flex;
+  justify-content: space-between;
+}
+.advantages__item {
+  max-width: 370px;
+  text-align: center;
+  padding: 0px 15px;
+
+  &:hover {
+    .advantages__item-img {
+      background-color: $green;
+    }
+    .advantages__item-title {
+      color: $green;
+    }
+    .advantages__item-img{
+  g{
+    fill: #fff;
+  }
+}
+  }
+  &-img {
+    width: 114px;
+    height: 114px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 30px;
+    transition: all 0.3s;
+  }
+  &-title {
+    margin: 25px;
+    font-size: 24px;
+    color: #fff;
+    @include f500;
+    transition: all 0.3s;
+  }
+}
+
+.icosvg-1 {
+  svg {
+    width: 80px;
+  }
+}
+.icosvg-2 {
+  svg {
+    width: 70px;
+  }
+}
+.icosvg-3 {
+  svg {
+    width: 86px;
+  }
+}
+
+// end advantages
