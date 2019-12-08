@@ -3,7 +3,9 @@
 @import "fonts";
 
 // start header
-
+.header{
+  background-color: #fff;
+}
 .header__top-inner {
   display: flex;
   justify-content: space-between;
@@ -110,13 +112,14 @@
   }
 }
 .basket {
+  margin-right: 20px;
   span {
     background-color: $green;
   }
 }
 .user {
   position: relative;
-  margin-left: 20px;
+
   margin-right: 25px;
   padding-right: 20px;
   &__inner {
@@ -197,10 +200,10 @@
       overflow: auto;
       border-width: 1px;
     }
-    .circle__item{
+    .circle__item {
       padding: 23px;
     }
-    .header__circle::before{
+    .header__circle::before {
       color: $bg;
     }
   }
@@ -212,7 +215,8 @@
   right: 0;
   height: 0;
   overflow: hidden;
-  transition: all .3s;
+  transition: all 0.3s;
+  z-index: 1;
 }
 .circle__item {
   background-color: #fff;
@@ -221,12 +225,12 @@
   border-right-width: 1px;
   border-left-width: 1px;
   padding: 0 23px;
-  transition: all .3s;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
   width: 269px;
   position: relative;
-  &::before{
+  &::before {
     position: absolute;
     top: 27px;
     right: 28px;
@@ -251,7 +255,7 @@
     font-size: 16px;
     color: #000;
   }
-  &-date{
+  &-date {
     font-size: 10px;
     color: #90a4ae;
   }
@@ -286,19 +290,23 @@
   }
 }
 .notification__menu,
-.message__menu{
-  .circle__img{
+.message__menu {
+  .circle__img {
     margin-right: 20px;
     width: 48px;
     height: 48px;
     border-radius: 50%;
   }
-  .circle__info{
+  .circle__info {
     line-height: 18px;
   }
 }
-.icons-color::before{
+.icons-color::before {
   color: $tomato;
+}
+.header__btn-menu,
+.menu__btn {
+  display: none;
 }
 // end header
 
@@ -1161,3 +1169,5 @@ button.icon-unsorted {
 }
 
 // end product-page
+
+@import "media";
