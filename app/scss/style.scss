@@ -1461,6 +1461,7 @@ button.icon-unsorted {
   display: flex;
   justify-content: space-between;
   padding: 30px 0;
+  position: relative;
 }
 .price__product {
   font-size: 22px;
@@ -1589,7 +1590,43 @@ button.icon-unsorted {
     color: $bg;
   }
 }
-
+.price__box {
+  form {
+    .jq-selectbox{
+      position: absolute;
+      top: 24px;
+      right: 7px;
+    }
+    .jq-selectbox__dropdown{
+      top: 28px !important;
+    }
+    .jq-selectbox__select {
+      height: 32px;
+      width: 100%;
+      border: 1px solid #d6d6d6;
+      border-bottom-color: #d6d6d6;
+      border-radius: 0px;
+      background: #fff;
+      box-shadow: none;
+      color: #70838d;
+      text-shadow: none;
+    }
+    .jq-selectbox__trigger {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 34px;
+      height: 100%;
+      border-left: none;
+    }
+   .jq-selectbox__select{
+    padding: 0 27px 0 10px;
+   }
+    .jq-selectbox__trigger-arrow{
+      border-top-color: $green;
+    }
+  }
+}
 // end product-one
 //start page-404
 .page-404__wrapper,
@@ -1841,6 +1878,15 @@ button.icon-unsorted {
 }
 .page-box__content {
   padding: 30px 35px 80px;
+  button {
+    color: #fff;
+    background-color: $green;
+    border: none;
+    padding: 15px 36px;
+    margin-left: 175px;
+    @include f500;
+    cursor: pointer;
+  }
 }
 .settings__line {
   margin-bottom: 21px;
@@ -1870,14 +1916,34 @@ button.icon-unsorted {
     padding: 0px 16px;
   }
 }
-.settings__btn {
-  width: 108px;
-  padding: 16px 32px;
-  background-color: $green;
-  color: #fff;
-  @include f500;
-  margin: 0 auto;
-  cursor: pointer;
+.settings__line {
+  .jq-selectbox__trigger-arrow {
+    border-top-color: #444;
+  }
+  .jq-selectbox__trigger {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    border-left: none;
+  }
+  .jq-file.focused {
+    display: none;
+  }
+  .jq-selectbox__select {
+    width: 540px;
+    height: 40px;
+    padding: 0px 18px;
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #d7d7d7;
+    background-color: #f9f9f9;
+    box-shadow: none;
+    text-shadow: none;
+    color: #707070;
+    font-family: "Roboto-Regular", sans-serif;
+    line-height: 40px;
+  }
 }
 //end settings
 //start profile
@@ -2002,7 +2068,7 @@ button.icon-unsorted {
       font-weight: 500;
       color: #707070;
       position: relative;
-      &.active::before{
+      &.active::before {
         color: $green;
       }
       &::before {
@@ -2065,5 +2131,139 @@ button.icon-unsorted {
 }
 
 //end profile
+//star upload
+.upload__inner {
+  background-color: #fff;
+  border: 1px solid #d7d7d7;
+  margin-bottom: 110px;
+  &-title {
+    @include f500;
+    font-size: 24px;
+    padding: 16px 35px 18px;
+    color: $bg;
+    border-bottom: 1px solid #d7d7d7;
+    margin-bottom: 40px;
+  }
+  &-content {
+    margin-bottom: 30px;
+    padding-left: 45px;
+    padding-right: 50px;
+  }
+  button {
+    color: #fff;
+    background-color: $green;
+    border: none;
+    padding: 15px 36px;
+    margin-left: 175px;
+    @include f500;
+    cursor: pointer;
+  }
+}
+
+.upload-line {
+  margin-bottom: 25px;
+  display: flex;
+  label {
+    min-width: 175px;
+    padding-top: 5px;
+    padding-right: 15px;
+    color: #444;
+    span {
+      color: $green;
+    }
+    &::placeholder {
+      color: #707070;
+    }
+  }
+  select,
+  input,
+  textarea {
+    width: 100%;
+    display: block;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+    padding: 0 18px;
+  }
+  textarea {
+    resize: none;
+    height: 150px;
+    padding: 8px 18px;
+  }
+
+  .jq-file.focused {
+    display: none;
+  }
+  .jq-file__browse {
+    top: 5px;
+    right: auto;
+    left: 9px;
+    padding: 0 12px;
+    font-size: 12px;
+    line-height: 26px;
+    border: 1px solid #d7d7d7;
+    border-left: 1px solid #d7d7d7;
+    border-radius: 0;
+    background: #fff;
+    box-shadow: none;
+    text-shadow: none;
+    color: #444;
+  }
+  .jq-file {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #d7d7d7;
+    height: 40px;
+    background-color: #f9f9f9;
+  }
+  .jq-file__name {
+    box-sizing: border-box;
+    width: 100%;
+    height: 40px;
+    padding: 0 18px;
+    margin-left: 100px;
+    border: none;
+    border-bottom-color: transparent;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 12px;
+    color: #707070;
+    line-height: 40px;
+  }
+  .jq-selectbox {
+    width: 100%;
+  }
+  .jq-selectbox__select {
+    height: 40px;
+    padding: 0px 18px;
+    border: 1px solid #d7d7d7;
+    border-bottom-color: #d7d7d7;
+    background-color: #f9f9f9;
+    box-shadow: none;
+    text-shadow: none;
+    color: #707070;
+    font-family: "Roboto-Regular", sans-serif;
+    line-height: 40px;
+  }
+  .jq-selectbox__trigger-arrow {
+    border: none;
+    line-height: 40px;
+    top: 0;
+    right: 20px;
+    font-size: 15px;
+    &::before {
+      content: "\f0d7";
+      font-family: "icomoon";
+
+      color: #444;
+    }
+  }
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
+}
+//end upload
 
 @import "media";
