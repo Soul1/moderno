@@ -478,6 +478,11 @@
   font-family: "Roboto", sans-serif;
   background-color: $grey;
 }
+.products__wrapper,
+.product-slider__wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+}
 .products__inner-btn {
   text-align: center;
   margin-bottom: 60px;
@@ -500,8 +505,13 @@
 }
 .products__inner-box {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  margin-left: -30px;
   flex-wrap: wrap;
+}
+.products .products__item {
+  flex-basis: calc(25% - 30px);
+  margin-left: 30px;
 }
 .products__item {
   max-width: 442px;
@@ -919,7 +929,7 @@
     padding-bottom: 110px;
   }
   &__aside {
-    margin-right: 3px;
+    margin-right: 30px;
   }
 }
 .aside__item {
@@ -1134,8 +1144,9 @@ button.icon-unsorted {
 .product-page__content {
   .products__item {
     background-color: #fff;
-    max-width: 270px;
     transition: all 0.5s;
+    flex-basis: calc(33.3333% - 30px);
+    margin-left: 30px;
     &-img {
       min-height: 180px;
     }
@@ -1160,9 +1171,10 @@ button.icon-unsorted {
 }
 .product-page__items {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 30px;
+  margin-left: -30px;
 }
 .pagination__list {
   li {
@@ -1229,6 +1241,7 @@ button.icon-unsorted {
 .products__item {
   &.list {
     max-width: 100%;
+    flex-basis: 100%;
     .products__item-img {
       width: 240px;
       float: left;
@@ -1292,7 +1305,7 @@ button.icon-unsorted {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  padding: 16px 0;
+  padding: 16px;
 }
 .product-one {
   &__title {
@@ -1678,8 +1691,10 @@ button.icon-unsorted {
   max-width: 501px;
   margin: 0 auto;
   margin-bottom: 60px;
+  @include f500;
 }
 .page-404__link {
+  @include f500;
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -1893,7 +1908,8 @@ button.icon-unsorted {
   display: flex;
   align-items: center;
   label {
-    width: 260px;
+    max-width: 260px;
+    width: 100%;
     font-size: 12px;
     color: #444;
   }
@@ -1907,32 +1923,23 @@ button.icon-unsorted {
     padding: 0px 16px;
   }
   select {
-    max-width: 540px;
     width: 100%;
+    display: block;
     height: 40px;
-    color: #707070;
+    &::placeholder {
+      color: #707070;
+    }
     background-color: #f9f9f9;
     border: 1px solid #dedede;
     padding: 0px 16px;
   }
 }
 .settings__line {
-  .jq-selectbox__trigger-arrow {
-    border-top-color: #444;
-  }
-  .jq-selectbox__trigger {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 100%;
-    border-left: none;
-  }
-  .jq-file.focused {
-    display: none;
+  .jq-selectbox {
+    width: 100%;
+    max-width: 540px;
   }
   .jq-selectbox__select {
-    width: 540px;
     height: 40px;
     padding: 0px 18px;
     border: 1px solid #d7d7d7;
@@ -1944,7 +1951,27 @@ button.icon-unsorted {
     font-family: "Roboto-Regular", sans-serif;
     line-height: 40px;
   }
+  .jq-selectbox__trigger-arrow {
+    border: none;
+    line-height: 40px;
+    top: 0;
+    right: 20px;
+    font-size: 15px;
+    &::before {
+      content: "\f0d7";
+      font-family: "icomoon";
+
+      color: #444;
+    }
+  }
+  .jq-selectbox__trigger {
+    border-left: none;
+  }
 }
+// .jq-selectbox.width-auto {
+//     width: 100%;
+//     max-width: 540px;
+// }
 //end settings
 //start profile
 .profile__inner {
@@ -2365,7 +2392,7 @@ button.icon-unsorted {
   align-items: center;
   font-size: 13px;
   color: #444;
-  &:nth-child(odd){
+  &:nth-child(odd) {
     background-color: #f9f9f9;
   }
 }
@@ -2396,5 +2423,4 @@ button.icon-unsorted {
   }
 }
 //end withdrawals
-
 @import "media";
