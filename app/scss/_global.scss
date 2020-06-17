@@ -9,6 +9,8 @@ html {
 html,
 body {
   height: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 a {
   display: inline-block;
@@ -26,7 +28,6 @@ body {
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
-  overflow-x: hidden;
 }
 .wrapper {
   display: flex;

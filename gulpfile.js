@@ -46,19 +46,22 @@ gulp.task('script', function(){
   ])
   .pipe(concat('libs.min.js'))
   .pipe(uglify())
-  .pipe(gulp.dest('app/js'))
+  .pipe(gulp.dest('app/js/min'))
 });
 
+gulp.task('jsmin', function () {
+  return gulp.src(['app/js/main.js'])
+      .pipe(concat('main.min.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest('app/js/min'))
+      .pipe(browserSync.reload({stream: true}))
+});
 
 gulp.task('html', function(){
  return gulp.src('app/*.html')
  .pipe(browserSync.reload({stream: true}))
 });
 
-gulp.task('js', function(){
-  return gulp.src('app/js/*.js')
-  .pipe(browserSync.reload({stream: true}))
- });
 
 gulp.task('browser-sync', function() {
   browserSync.init({
@@ -69,9 +72,9 @@ gulp.task('browser-sync', function() {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('app/scss/**/*.scss', gulp.parallel('sass'))
-  gulp.watch('app/*.html', gulp.parallel('html'))
-  gulp.watch('app/js/*.js', gulp.parallel('js'))
+  gulp.watch('app/scss/**/*.scss', gulp.parallel('sass'));
+  gulp.watch('app/*.html', gulp.parallel('html'));
+  gulp.watch('app/js/*.js', gulp.parallel('jsmin'))
 });
 
-gulp.task('default', gulp.parallel('style', 'script', 'sass', 'watch', 'browser-sync'));
+gulp.task('default', gulp.parallel('style', 'script', 'jsmin', 'sass', 'watch', 'browser-sync'));
